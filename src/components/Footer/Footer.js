@@ -1,61 +1,70 @@
-/*!
-
-=========================================================
-* Paper Dashboard React - v1.3.1
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/paper-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-* Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard-react/blob/main/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-/*eslint-disable*/
 import React from "react";
-import { Container, Row } from "reactstrap";
-// used for making the prop types of this component
-import PropTypes from "prop-types";
+import { Line, Pie } from "react-chartjs-2";
+import logo from "logo_new_2022.png";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  CardTitle,
+  Row,
+  Col
+} from "reactstrap";
 
-function Footer(props) {
+function Dashboard() {
   return (
-    <footer className={"footer" + (props.default ? " footer-default" : "")}>
-      <Container fluid={props.fluid ? true : false}>
+    <>
+      <div className="content">
         <Row>
-          <nav className="footer-nav">
-            <ul>
-              <li>
-                <a href="https://www.utd.edu.mx" target="_blank">
-                  UTD
+          <Col lg="3" md="6" sm="6">
+            <Card className="card-stats">
+              <CardBody>
+                <Row>
+                  <Col md="4" xs="5">
+                    <div className="icon-big text-center icon-warning">
+                      <i className="nc-icon nc-globe text-warning" />
+                    </div>
+                  </Col>
+                  <Col md="8" xs="7">
+                    <div className="numbers">
+                      <p className="card-category">NOMBRE DEL ALUMNO:</p>
+                      <CardTitle tag="p">Kennya Orona</CardTitle>
+                      <p className="card-category">FECHA:</p>
+                      <CardTitle tag="p">05 septiembre</CardTitle>
+                      <p className="card-category">CARRERA</p>
+                      <CardTitle tag="p">DGS</CardTitle>
+                      <p />
+                    </div>
+                  </Col>
+                </Row>
+              </CardBody>
+              <CardFooter>
+                <hr />
+                <div className="stats"></div>
+                <a href="/" className="simple-text logo-mini">
+                  <div className="logo-img">
+                    <img src={logo} alt="react-logo" />
+                  </div>
                 </a>
-              </li>
-              <li>
-                <a href="https://www.facebook.com/UTDURANGO" target="_blank">
-                  Facebook
-                </a>
-              </li>              
-            </ul>
-          </nav>
-          <div className="credits ml-auto">
-            <div className="copyright">
-              &copy; {1900 + new Date().getYear()}, UTD{" "}
-              <i className="fa fa-heart heart" /> DERECHOS RESERVADOS JUAN PEREZ
-            </div>
-          </div>
+              </CardFooter>
+            </Card>
+          </Col>         
         </Row>
-      </Container>
-    </footer>
+        <Row>
+        </Row>
+      </div>
+
+      {/* Footer */}
+      <footer>
+        <div className="credits ml-auto">
+          <div className="copyright">
+            &copy; {1900 + new Date().getYear()}, UTD{" "}
+            <i className="fa fa-heart heart" /> DERECHOS RESERVADOS Miguel Manzanilla
+          </div>
+        </div>
+      </footer>
+    </>
   );
 }
 
-Footer.propTypes = {
-  default: PropTypes.bool,
-  fluid: PropTypes.bool
-};
-
-export default Footer;
+export default Dashboard;
